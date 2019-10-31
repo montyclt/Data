@@ -2,6 +2,12 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Title>MontyClt.Data.RavenDB</Title>
+        <Authors>MontyClt</Authors>
+        <PackageProjectUrl>https://github.com/montyclt/Data</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/montyclt/Data</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
     </PropertyGroup>
 
     <ItemGroup>

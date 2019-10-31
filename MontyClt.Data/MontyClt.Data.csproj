@@ -2,6 +2,13 @@
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>1.0.0.0</PackageVersion>
+        <Title>MontyClt.Data</Title>
+        <Authors>MontyClt</Authors>
+        <PackageProjectUrl>https://github.com/montyclt/Data</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/montyclt/Data</RepositoryUrl>
+        <RepositoryType>Git</RepositoryType>
     </PropertyGroup>
 
 </Project>
