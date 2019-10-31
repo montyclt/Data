@@ -10,7 +10,7 @@ using Raven.Client.Exceptions;
 
 namespace MontyClt.Data.RavenDB
 {
-    public class RavenQueryBuilder : IQueryBuilder
+    public class RavenQueryBuilder : IDataProviderSession
     {
         private readonly IAsyncDocumentSession _session;
 
@@ -113,34 +113,10 @@ namespace MontyClt.Data.RavenDB
                 throw new QueryBuilderException(ex);
             }
         }
-    }
 
-    public class RavenAdvancedQueryable<TEntity> : IAdvancedQueryable<TEntity> where TEntity : class
-    {
-        private readonly IQueryable<TEntity> _queryable;
-        private readonly IAsyncDocumentSession _session;
-
-        public RavenAdvancedQueryable(IQueryable<TEntity> queryable, IAsyncDocumentSession session)
+        public async Task<IEnumerable<TEntity>> ToEnumerableAsync(CancellationToken cancellationToken)
         {
-            if (!(queryable.Provider is IRavenQueryProvider))
-                throw new InvalidOperationException("RavenAdvancedQueryable can be used only on RavenQueryable");
-            
-            _queryable = queryable;
-            _session = session;
-        }
-        
-        public IQueryable<TEntity> WhereMetadata(string key, object value)
-        {
-            var provider = (IRavenQueryProvider) _queryable.Provider;
-
-            return provider.ToAsyncDocumentQuery<TEntity>(_queryable.Expression)
-                .WhereEquals($"@metadata.{key}", value)
-                .ToQueryable();
-        }
-
-        public IDictionary<string, object> GetMetadataFor(TEntity entity)
-        {
-            return _session.Advanced.GetMetadataFor(entity);
+            return await ToArrayAsync(cancellationToken);
         }
     }
 }
