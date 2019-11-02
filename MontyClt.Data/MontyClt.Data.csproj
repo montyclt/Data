@@ -9,6 +9,7 @@
         <PackageProjectUrl>https://github.com/montyclt/Data</PackageProjectUrl>
         <RepositoryUrl>https://github.com/montyclt/Data</RepositoryUrl>
         <RepositoryType>Git</RepositoryType>
+        <LangVersion>7.3</LangVersion>
     </PropertyGroup>
 
 </Project>
