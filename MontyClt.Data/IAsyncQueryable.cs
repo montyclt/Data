@@ -16,13 +16,6 @@ namespace MontyClt.Data
         Task<TEntity> FirstOrDefaultAsync(CancellationToken cancellationToken);
 
         /// <exception cref="DataProviderException"></exception>
-        /// <exception cref="InvalidOperationException"></exception>
-        Task<TEntity> SingleAsync(CancellationToken cancellationToken);
-
-        /// <exception cref="DataProviderException"></exception>
-        Task<TEntity> SingleOrDefaultAsync(CancellationToken cancellationToken);
-
-        /// <exception cref="DataProviderException"></exception>
         Task<TEntity[]> ToArrayAsync(CancellationToken cancellationToken);
 
         /// <exception cref="DataProviderException"></exception>

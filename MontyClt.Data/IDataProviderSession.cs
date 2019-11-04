@@ -19,6 +19,8 @@ namespace MontyClt.Data
         /// <exception cref="DataProviderException"></exception>
         Task UntrackAsync<TEntity>(TEntity entity, CancellationToken cancellationToken) where TEntity : class;
 
+        Task DeleteAsync<TEntity>(TEntity entity, CancellationToken cancellationToken) where TEntity : class;
+
         IAsyncQueryable<TEntity> ToAsyncQueryable<TEntity>(IQueryable<TEntity> queryable) where TEntity : class;
         IAdvancedQueryable<TEntity> ToAdvancedQueryable<TEntity>(IQueryable<TEntity> queryable) where TEntity : class;
         IMetadataQueryable<TEntity> ToMetadataQueryable<TEntity>(IQueryable<TEntity> queryable) where TEntity : class;

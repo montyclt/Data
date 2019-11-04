@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace MontyClt.Data
 {
@@ -11,7 +13,7 @@ namespace MontyClt.Data
         IAdvancedQueryable<TEntity> Not { get; }
 
         IAdvancedQueryable<TEntity> WhereEquals(string key, object value);
-        IAdvancedQueryable<TEntity> WhereIn(string key, object value);
+        IAdvancedQueryable<TEntity> WhereIn(string key, IEnumerable<object> values);
         IAdvancedQueryable<TEntity> WhereBetween(string key, object lessValue, object greaterValue);
         IAdvancedQueryable<TEntity> WhereLessThan(string key, object value);
         IAdvancedQueryable<TEntity> WhereLessEqualsThan(string key, object value);
@@ -22,7 +24,7 @@ namespace MontyClt.Data
         
         IAdvancedQueryable<TEntity> Related();
 
-        IAdvancedQueryable<TEntity> Include(Func<TEntity, object> predicate);
+        IAdvancedQueryable<TEntity> Include(Expression<Func<TEntity, object>> predicate);
 
         IQueryable<TEntity> ToQueryable();
     }

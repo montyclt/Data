@@ -12,8 +12,8 @@ namespace MontyClt.Data
         IMetadataQueryable<TEntity> WhereLessEqualsThan(string key, object value);
         IMetadataQueryable<TEntity> WhereGreaterThan(string key, object value);
         IMetadataQueryable<TEntity> WhereGreaterEqualsThan(string key, object value);
-        
-        IQueryable<TEntity> ToQueryable { get; set; }
+
+        IQueryable<TEntity> ToQueryable();
     }
 
     public static class MetadataExtensions
