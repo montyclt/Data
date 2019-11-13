@@ -11,6 +11,7 @@ namespace MontyClt.Data
         ///     Negate the following expression.
         /// </summary>
         IAdvancedQueryable<TEntity> Not { get; }
+        IAdvancedQueryable<TEntity> Or { get; }
 
         IAdvancedQueryable<TEntity> WhereEquals(string key, object value);
         IAdvancedQueryable<TEntity> WhereIn(string key, IEnumerable<object> values);

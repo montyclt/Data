@@ -42,6 +42,15 @@ namespace MontyClt.Data.RavenDB
             }
         }
 
+        public IAdvancedQueryable<TEntity> Or
+        {
+            get
+            {
+                _queryable = DocumentQuery.OrElse().ToQueryable();
+                return this;
+            }
+        }
+
         public IAdvancedQueryable<TEntity> WhereEquals(string key, object value)
         {
             _queryable = DocumentQuery.WhereEquals(key, value).ToQueryable();
