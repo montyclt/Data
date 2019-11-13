@@ -8,7 +8,7 @@
         <PackageProjectUrl>https://github.com/montyclt/Data</PackageProjectUrl>
         <RepositoryUrl>https://github.com/montyclt/Data</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageVersion>1.0.0.1</PackageVersion>
+        <PackageVersion>1.0.0.3</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>

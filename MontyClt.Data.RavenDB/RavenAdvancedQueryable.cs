@@ -86,7 +86,20 @@ namespace MontyClt.Data.RavenDB
 
         public IAdvancedQueryable<TEntity> Search(string key, string term)
         {
-            _queryable = DocumentQuery.WhereLucene(key, term).ToQueryable();
+            _queryable = DocumentQuery.Search(key, term).ToQueryable();
+            return this;
+        }
+
+        public IAdvancedQueryable<TEntity> FuzzySearch(string key, string term, decimal fuzzyLevel = .5M)
+        {
+            _queryable = DocumentQuery.WhereEquals(key, term).Fuzzy(fuzzyLevel).ToQueryable();
+            return this;
+        }
+
+        public IAdvancedQueryable<TEntity> FuzzySearch(Expression<Func<TEntity, string>> expression, string term,
+            decimal fuzzyLevel = .5M)
+        {
+            _queryable = DocumentQuery.WhereEquals(expression, term).Fuzzy(fuzzyLevel).ToQueryable();
             return this;
         }
 

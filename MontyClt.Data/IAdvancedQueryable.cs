@@ -21,7 +21,11 @@ namespace MontyClt.Data
         IAdvancedQueryable<TEntity> WhereGreaterEqualsThan(string key, object value);
 
         IAdvancedQueryable<TEntity> Search(string key, string term);
-        
+        IAdvancedQueryable<TEntity> FuzzySearch(string key, string term, decimal fuzzyLevel = .5M);
+
+        IAdvancedQueryable<TEntity> FuzzySearch(Expression<Func<TEntity, string>> expression, string term,
+            decimal fuzzyLevel = .5M);
+
         IAdvancedQueryable<TEntity> Related();
 
         IAdvancedQueryable<TEntity> Include(Expression<Func<TEntity, object>> predicate);
